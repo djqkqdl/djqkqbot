@@ -4,15 +4,13 @@ import os
 
 client = discord.Client()
 
-
 @client.event
 async def on_ready():
+    print("login")
+    print(client.user.name)
     print(client.user.id)
     print("ready")
-    game = discord.Game("어밥봇 도움말로 사용 가능한 명령어를 확인하세요.")
-    await client.change_presence(status=discord.Status.online, activity=game)
-
-
+    await client.change_presence(game=discord.Game(name='', type=1))
 
 @client.event
 async def on_message(message):
