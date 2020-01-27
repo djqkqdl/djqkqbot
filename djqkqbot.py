@@ -1,4 +1,6 @@
 import discord
+import os
+
 
 client = discord.Client()
 
@@ -9,7 +11,6 @@ async def on_ready():
     print("ready")
     game = discord.Game("어밥봇 도움말로 사용 가능한 명령어를 확인하세요.")
     await client.change_presence(status=discord.Status.online, activity=game)
-
 
 
 @client.event
@@ -108,5 +109,5 @@ async def on_message(message):
         await message.channel.send(" > 어밥봇은 미육이선배라고 불러요!!")
 
         
-        
-client.run("NjcwODQyNjU0MzU0ODMzNDE4.Xi0Q9g.ZLdhqUpsB7br9eDAt5RhWjMdKok")
+access_token = os.environ["BOT_TOKEN"]
+client.run(access_token)
